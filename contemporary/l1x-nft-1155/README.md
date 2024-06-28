@@ -37,7 +37,7 @@ cargo l1x create project_name
 ```
 
 Goto src/lib.rs and paste the smart contract there.
-Goto src/ and paste the nse64_data.rs smart contract there.
+Goto src/ and paste the base64_data.rs smart contract there.
 
 Similarly, paste Cargo.toml file in the project.
 
