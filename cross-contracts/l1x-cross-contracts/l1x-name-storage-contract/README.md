@@ -29,10 +29,13 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installation
 
-Initiate a new L1X project creation process with Cargo's L1X plugin. The Name Storage template is utilized here.
+Initiate a new L1X project creation process with Cargo's L1X plugin.
 ```sh
-cargo l1x create project_name --template name-storage
+cargo l1x create project_name
 ```
+
+Goto src/lib.rs and paste the smart contract there.
+Similarly, paste Cargo.toml file in the project.
 
 ## Building the Contract
  ```sh
