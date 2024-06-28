@@ -15,7 +15,7 @@ This repository contains an L1X smart contract to make cross contract call to L1
 
 ## Overview
 
-The smart contract deals with cross contract call to an evm smart contract. The contract provides ERC20 functions
+The smart contract deals with cross contract call to an evm smart contract. The contract provides basic setValue and getValue functions
 
 ## Prerequisites
 
@@ -25,10 +25,14 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installation
 
-Initiate a new L1X project creation process with Cargo's L1X plugin. The L1X EVM Cross Contract template is utilized here.
+Initiate a new L1X project creation process with Cargo's L1X plugin.
 ```sh
-cargo l1x create project_name --template l1x-evm-cross-contract
+cargo l1x create project_name
 ```
+
+Goto src/lib.rs and paste the smart contract there.
+Similarly, paste Cargo.toml file in the project.
+
 
 ## Building the Contract
  ```sh
@@ -49,6 +53,7 @@ You will get deployed contract address (DEPLOY_CONTRACT_ADDRESS) as the response
 ## Initialize the Contract
 
 Initialize your deployed L1X project by setting up its base contract address.
+Note that l1x-evm-contract needs to be deployed first on L1X EVM and then the L1X_EVM_CONTRACT_ADDRESS should be used during initiaization of this smart contract.
 
 ```sh
 l1x-cli-beta contract init DEPLOY_CONTRACT_ADDRESS --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000 --args '{"evm_address":"L1X_EVM_CONTRACT_ADDRESS"}'
