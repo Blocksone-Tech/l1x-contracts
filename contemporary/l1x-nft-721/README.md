@@ -108,7 +108,7 @@ l1x-cli-beta contract view INIT_CONTRACT_ADDRESS nft_icon --args '{}' --endpoint
 **Non-Fungible Token Uri** - Read Only Function Call
 
 ```sh
-l1x-cli-beta contract view INIT_CONTRACT_ADDRESS nft_token_uri --args '{}' --endpoint https://v2-testnet-rpc.l1x.foundation
+l1x-cli-beta contract view INIT_CONTRACT_ADDRESS nft_token_uri --args '{"id":"NFT_ID"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 
 **Non-Fungible Token MetaData** - Read Only Function Call
