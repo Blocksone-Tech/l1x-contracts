@@ -31,7 +31,7 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installation
 
-Initiate a new L1X project creation process with Cargo's L1X plugin. The Default template is utilized here.
+Initiate a new L1X project creation process with Cargo's L1X plugin. The Non Fungible Token template is utilized here.
  ```sh
 cargo l1x create project_name --template nft
 ```
