@@ -31,11 +31,15 @@ Before you begin, ensure you have met the following requirements:
 
 ## Installation
 
-Initiate a new L1X project creation process with Cargo's L1X plugin. The Default template is utilized here.
+Initiate a new L1X project creation process with Cargo's L1X plugin.
  ```sh
-cargo l1x create project_name --template nft1155
+cargo l1x create project_name
 ```
 
+Goto src/lib.rs and paste the smart contract there.
+Goto src/ and paste the nse64_data.rs smart contract there.
+
+Similarly, paste Cargo.toml file in the project.
 
 
 ## Building the Contract
