@@ -40,7 +40,7 @@ The contract need to be deployed and initialized in the given sequence.
 
 ```sh
 mkdir profile_contracts
-cd profilie_contracts
+cd profile_contracts
 ```
 
 
