@@ -188,7 +188,7 @@ Initialize your deployed L1X project by setting up its base contract address.
 
 
 ```sh
-l1x-cli-beta contract init PROVATAR_NFT_DEPLOY_CONTRACT_ADDRESS --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000 --args '{"metadata": {"name":"PROVATAR_NFT_NAME", "decimals":0, "description":"PROVATAR_NFT_DESCRIPTION"}}'
+l1x-cli-beta contract init PROVATAR_NFT_DEPLOY_CONTRACT_ADDRESS --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000 --args '{"metadata": {"name":"PROVATAR_NFT_NAME", "decimals":0, "symbol":"PROVATAR_NFT_SYMBOL", "icon":"PROVATAR_NFT_ICON"}}'
 ```
 
 On successful initialization of the project, you will get initialized contract address (PROVATAR_NFT_INIT_CONTRACT_ADDRESS) as the response of the init command. Use it for further Readonly and State Changing Provatar NFT Function calls
