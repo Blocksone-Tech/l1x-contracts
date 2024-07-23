@@ -2,6 +2,8 @@
 
 This project implements AVD contracts using Rust. The contract manages access control, version control and data storage.
 
+<br>
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -10,6 +12,8 @@ This project implements AVD contracts using Rust. The contract manages access co
 - [Usage](#usage)
 - [License](#license)
 
+<br>
+
 ## Overview
 
 This project handles access control, data storage and version control. It contains the features:
@@ -17,6 +21,7 @@ This project handles access control, data storage and version control. It contai
 - Data Storage Management: Create data and check data details.
 - Version Control Management: Submit and get share request.
 
+<br>
 
 ## Prerequisites
 
@@ -28,8 +33,7 @@ Before you begin, ensure you have met the following requirements:
 
 - Super is deploying all the contracts
 
-
-
+<br>
 
 ## Installation
 
@@ -40,6 +44,7 @@ mkdir avd
 cd avd
 ```
 
+<br>
 
 ### 1. Types Dependency
 
@@ -61,9 +66,7 @@ Similarly, paste Cargo.toml file in the project.
 
 These contracts serve as dependency for the AVD contracts.
 
-
-
-
+<br>
 
 ### 2. Access Control Installation
 
@@ -75,6 +78,7 @@ cargo l1x create access_control
 
 Goto src/lib.rs and paste the smart contract there. Similarly, paste Cargo.toml file in the project.
 
+<br>
 
 ##### 2.1 Building the Access Control Contract
  ```sh
@@ -82,6 +86,8 @@ cd access_control
 cargo l1x build
 ```
 A CONTRACT_OBJECT_FILE **access_control.o** would be created as target/l1x/release/access_control.o
+
+<br>
 
 ##### 2.2 Access Control Contract Deployment
 
@@ -91,6 +97,8 @@ Deploy the compiled L1X project to the L1X blockchain.
 l1x-cli-beta contract deploy ./target/l1x/release/access_control.o --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000
 ```
 You will get deployed contract address (ACCESS_CONTROL_DEPLOY_CONTRACT_ADDRESS) as the response of the above command. Use it to initialize your L1X project.
+
+<br>
 
 ##### 2.3 Initialize the Access Control Contract
 
@@ -102,7 +110,7 @@ l1x-cli-beta contract init ACCESS_CONTROL_DEPLOY_CONTRACT_ADDRESS --endpoint htt
 
 On successful initialization of the project, you will get initialized contract address (ACCESS_CONTROL_INIT_CONTRACT_ADDRESS) as the response of the init command. Use it for further Readonly and State Changing Access Control Function calls
 
-
+<br>
 
 ### 3. Data Storage Installation
 
@@ -114,12 +122,16 @@ cargo l1x create data_storage
 
 Goto src/lib.rs and paste the smart contract there. Similarly, paste Cargo.toml file in the project.
 
+<br>
+
 ##### 3.1 Building the Data Storage Contract
  ```sh
 cd data_storage
 cargo l1x build
 ```
 A CONTRACT_OBJECT_FILE **data_storage.o** would be created as target/l1x/release/data_storage.o
+
+<br>
 
 ##### 3.2 Data Storage Contract Deployment
 
@@ -130,19 +142,21 @@ l1x-cli-beta contract deploy ./target/l1x/release/data_storage.o --endpoint http
 ```
 You will get deployed contract address (DATA_STORAGE_DEPLOY_CONTRACT_ADDRESS) as the response of the above command. Use it to initialize your L1X project.
 
+<br>
+
 ##### 3.3 Initialize the Data Storage Contract
 
 Initialize your deployed L1X project by setting up its base contract address.
 - Note that the pub_key and content needs to be passed in base64 format. Use below command to get base64 format.
 
 ```sh
-echo -n "SUPER_PUB_KEY" | base64 
+echo -n "SUPER_PUB_KEY" | base64
 ```
 You get BASE64_SUPER_PUB_KEY
 
 
 ```sh
-echo -n "CONTENT" | base64 
+echo -n "CONTENT" | base64
 ```
 You get BASE64_CONTENT
 
@@ -152,6 +166,7 @@ l1x-cli-beta contract init DATA_STORAGE_DEPLOY_CONTRACT_ADDRESS --endpoint https
 
 On successful initialization of the project, you will get initialized contract address (DATA_STORAGE_INIT_CONTRACT_ADDRESS) as the response of the init command. Use it for further Readonly and State Changing Data Storage Function calls
 
+<br>
 
 ##### 3.4 Confirm the Data Storage Contract Initialization
 At this stage, just check that the data storage contract is initialized successfully.
@@ -161,6 +176,7 @@ l1x-cli-beta contract view DATA_STORAGE_INIT_CONTRACT_ADDRESS owner --args '{}' 
 
 In the response, on successful initialization, you will get SUPER_WALLET_ADDRESS.
 
+<br>
 
 ### 4. Version Control Installation
 
@@ -171,12 +187,16 @@ cargo l1x create version_control
 ```
 Goto src/lib.rs and paste the smart contract there. Similarly, paste Cargo.toml file in the project.
 
+<br>
+
 ##### 4.1 Building the Version Control Contract
  ```sh
 cd version_control
 cargo l1x build
 ```
 A CONTRACT_OBJECT_FILE **version_control.o** would be created as target/l1x/release/version_control.o
+
+<br>
 
 ##### 4.2 Version Control Contract Deployment
 
@@ -186,6 +206,8 @@ Deploy the compiled L1X project to the L1X blockchain.
 l1x-cli-beta contract deploy ./target/l1x/release/version_control.o --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000
 ```
 You will get deployed contract address (VERSION_CONTROL_DEPLOY_CONTRACT_ADDRESS) as the response of the above command. Use it to initialize your L1X project.
+
+<br>
 
 ##### 4.3 Initialize the Version Control Contract
 
@@ -197,7 +219,7 @@ l1x-cli-beta contract init VERSION_CONTROL_DEPLOY_CONTRACT_ADDRESS --endpoint ht
 
 On successful initialization of the project, you will get initialized contract address (VERSION_CONTROL_INIT_CONTRACT_ADDRESS) as the response of the init command. Use it for further Readonly and State Changing Version Control Function calls
 
-
+<br>
 
 ##### 4.4 Confirm the Version Control Contract Initialization
 At this stage, just check that the Version Control contract is initialized successfully.
@@ -207,12 +229,13 @@ l1x-cli-beta contract view VERSION_CONTROL_INIT_CONTRACT_ADDRESS owner --args '{
 
 In the response, on successful initialization, you will get SUPER_WALLET_ADDRESS.
 
+<br>
 
 ## Usage
 
 Here’s the sample scenario for AVD contracts along with the sample functions and how to interact with the contract.
 
-
+<br>
 
 ### Scenario
 
@@ -221,6 +244,7 @@ Here’s the sample scenario for AVD contracts along with the sample functions a
 - Ava asks Super to share this Data Object with her.
 - Emma approves Ava's request
 
+<br>
 
 ### Flow
 
@@ -231,34 +255,35 @@ Here’s the sample scenario for AVD contracts along with the sample functions a
 ```sh
 l1x-cli-beta contract call ACCESS_CONTROL_INIT_CONTRACT_ADDRESS request_perm --args '{"cid":"DATA_STORAGE_INIT_CONTRACT_ADDRESS","perm":"Approve"}' --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000
 ```
-
+<br>
 
 **Create Share Request** - State Changing Function Call
 - Step 2: Ava creates a share request. This command is run behalf of Ava
 - Note that the pub_key should be in base64 format
 
 ```sh
-echo -n "AVA_PUB_KEY" | base64 
+echo -n "AVA_PUB_KEY" | base64
 ```
 You get BASE64_AVA_PUB_KEY
 
 ```sh
 l1x-cli-beta contract call ACCESS_CONTROL_INIT_CONTRACT_ADDRESS request_share --args '{"cid":"DATA_STORAGE_INIT_CONTRACT_ADDRESS","pub_key":"BASE64_AVA_PUB_KEY"}' --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000
-
 ```
 
+<br>
 
 **Check pending requests** - Read Only Function Call
 - Step 3: Check pending requests. This command is run behalf of Super.
 
 
 ```sh
-l1x-cli-beta contract view ACCESS_CONTROL_INIT_CONTRACT_ADDRESS pending_requests_by_cid --args '{"cid":"DATA_STORAGE_INIT_CONTRACT_ADDRESS"}' --endpoint https://v2-testnet-rpc.l1x.foundation 
+l1x-cli-beta contract view ACCESS_CONTROL_INIT_CONTRACT_ADDRESS pending_requests_by_cid --args '{"cid":"DATA_STORAGE_INIT_CONTRACT_ADDRESS"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 
 Note the req_idx for the pending request that is to be approved.
 
 
+<br>
 
 **Approve Permission Request** - State Changing Function Call
 - Step 4: Super approves Emma's permission request. This command is run behalf of Super.
@@ -266,6 +291,7 @@ Note the req_idx for the pending request that is to be approved.
 ```sh
 l1x-cli-beta contract call ACCESS_CONTROL_INIT_CONTRACT_ADDRESS approve_perm --args '{"req_idx":"PERMISSION_REQUEST_TO_BE_APPROVED"}' --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000
 ```
+<br>
 
 **Check pending requests** - Read Only Function Call
 - Step 5: Check pending requests again
@@ -274,6 +300,7 @@ l1x-cli-beta contract call ACCESS_CONTROL_INIT_CONTRACT_ADDRESS approve_perm --a
 l1x-cli-beta contract view ACCESS_CONTROL_INIT_CONTRACT_ADDRESS pending_requests_by_cid --args '{"cid":"DATA_STORAGE_INIT_CONTRACT_ADDRESS"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 
+<br>
 
 **Create Shared Data** - State Changing Function Call
 
@@ -286,6 +313,7 @@ l1x-cli-beta contract init DATA_STORAGE_DEPLOY_CONTRACT_ADDRESS --endpoint https
 
 The initialized contract address is referred to as AVA_DATA_STORAGE_INIT_ADDRESS further.
 
+<br>
 
 **Approve Share Request** - State Changing Function Call
 
@@ -297,6 +325,7 @@ l1x-cli-beta contract call ACCESS_CONTROL_INIT_CONTRACT_ADDRESS approve_share --
 ```
 
 
+<br>
 
 **Check pending requests** - Read Only Function Call
 - Step 8: Check pending requests again. This command is executed behalf of Super.
@@ -305,6 +334,7 @@ l1x-cli-beta contract call ACCESS_CONTROL_INIT_CONTRACT_ADDRESS approve_share --
 l1x-cli-beta contract view ACCESS_CONTROL_INIT_CONTRACT_ADDRESS pending_requests_by_cid --args '{"cid":"DATA_STORAGE_INIT_CONTRACT_ADDRESS"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 
+<br>
 
 **Submit Shared Data** - State Changing Function Call
 - Step 9: Super submits the just created shared data. This command is executed behalf of Super.
@@ -312,9 +342,9 @@ l1x-cli-beta contract view ACCESS_CONTROL_INIT_CONTRACT_ADDRESS pending_requests
 
 ```sh
 l1x-cli-beta contract call VERSION_CONTROL_INIT_ADDRESS submit_shared --args '{"cid":"AVA_DATA_STORAGE_INIT_ADDRESS","from_cid":"DATA_STORAGE_INIT_ADDRESS"}' --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000
-
 ```
 
+<br>
 
 **Confirm Data Sharing** - Read Only Function Call
 - Step 10: Check whether the data has been shared correctly
