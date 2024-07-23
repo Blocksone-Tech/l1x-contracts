@@ -2,6 +2,8 @@
 
 This project implements profile card contracts using Rust.
 
+<br>
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -9,6 +11,9 @@ This project implements profile card contracts using Rust.
 - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
+
+<br>
+
 
 ## Overview
 
@@ -18,6 +23,9 @@ This project contains smart contracts that implement profile card logic. It cont
 - Provatar NFT: Mint, approve and check NFT owner.
 - Profile Card: Add, transfer and list Name.
 - Data Storage: Store data.
+
+<br>
+
 
 ## Prerequisites
 
@@ -33,6 +41,9 @@ Before you begin, ensure you have met the following requirements:
 
 
 
+<br>
+
+
 
 ## Installation
 
@@ -42,6 +53,9 @@ The contract need to be deployed and initialized in the given sequence.
 mkdir profile_contracts
 cd profile_contracts
 ```
+
+
+<br>
 
 
 ### 1. Types Dependency
@@ -66,6 +80,9 @@ These contracts serve as dependency for the Profile Card contracts.
 
 
 
+<br>
+
+
 
 
 ### 2.  Name-Service Installation
@@ -79,12 +96,18 @@ cargo l1x create name_service
 Goto src/lib.rs and paste the smart contract there. Similarly, paste Cargo.toml file in the project.
 
 
+<br>
+
+
 ##### 2.1 Building the Name-Service Contract
  ```sh
 cd name_service
 cargo l1x build
 ```
 A CONTRACT_OBJECT_FILE **name_service.o** would be created as target/l1x/release/name_service.o
+
+
+<br>
 
 
 ##### 2.2 Name-Service Contract Deployment
@@ -97,6 +120,9 @@ l1x-cli-beta contract deploy ./target/l1x/release/name_service.o --endpoint http
 You will get deployed contract address (NAME_SERVICE_DEPLOY_CONTRACT_ADDRESS) as the response of the above command. Use it to initialize your L1X project.
 
 
+<br>
+
+
 ##### 2.3 Initialize the Name-Service Contract
 
 Initialize your deployed L1X project by setting up its base contract address.
@@ -106,6 +132,9 @@ l1x-cli-beta contract init NAME_SERVICE_DEPLOY_CONTRACT_ADDRESS --args '{}'  --e
 ```
 
 On successful initialization of the project, you will get initialized contract address (NAME_SERVICE_INIT_CONTRACT_ADDRESS) as the response of the init command. Use it for further Readonly and State Changing Name-Service Function calls
+
+
+<br>
 
 
 
@@ -120,12 +149,18 @@ cargo l1x create name_nft
 Goto src/lib.rs and paste the smart contract there. Similarly, paste Cargo.toml file in the project.
 
 
+<br>
+
+
 ##### 3.1 Building the Name NFT Contract
  ```sh
 cd name_nft
 cargo l1x build
 ```
 A CONTRACT_OBJECT_FILE **name_nft.o** would be created as target/l1x/release/name_nft.o
+
+<br>
+
 
 ##### 3.2 Name NFT Contract Deployment
 
@@ -135,6 +170,9 @@ Deploy the compiled L1X project to the L1X blockchain.
 l1x-cli-beta contract deploy ./target/l1x/release/name_nft.o --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000
 ```
 You will get deployed contract address (NAME_NFT_DEPLOY_CONTRACT_ADDRESS) as the response of the above command. Use it to initialize your L1X project.
+
+<br>
+
 
 ##### 3.3 Initialize the Name NFT Contract
 
@@ -147,6 +185,9 @@ l1x-cli-beta contract init NAME_NFT_DEPLOY_CONTRACT_ADDRESS --endpoint https://v
 On successful initialization of the project, you will get initialized contract address (NAME_NFT_INIT_CONTRACT_ADDRESS) as the response of the init command. Use it for further Readonly and State Changing Name NFT Function calls
 
 
+<br>
+
+
 ##### 3.4 Confirm the Name NFT Contract Initialization
 At this stage, just check that the Name NFT contract is initialized successfully.
 
@@ -154,6 +195,9 @@ At this stage, just check that the Name NFT contract is initialized successfully
 l1x-cli-beta contract view NAME_NFT_INIT_CONTRACT_ADDRESS nft_name --args '{}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 In the response, on successful initialization, you will get NAME_SERVICE_NFT_NAME used during Name NFT Contract initialization.
+
+
+<br>
 
 
 ### 4. Provatar NFT Installation
@@ -166,12 +210,18 @@ cargo l1x create provatar_nft
 
 Goto src/lib.rs and paste the smart contract there. Similarly, paste Cargo.toml file in the project.
 
+<br>
+
+
 ##### 4.1 Building the Provatar NFT Contract
  ```sh
 cd provatar_nft
 cargo l1x build
 ```
 A CONTRACT_OBJECT_FILE **provatar_nft.o** would be created as target/l1x/release/provatar_nft.o
+
+<br>
+
 
 ##### 4.2 Provatar NFT Contract Deployment
 
@@ -181,6 +231,9 @@ Deploy the compiled L1X project to the L1X blockchain.
 l1x-cli-beta contract deploy ./target/l1x/release/provatar_nft.o --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000
 ```
 You will get deployed contract address (PROVATAR_NFT_DEPLOY_CONTRACT_ADDRESS) as the response of the above command. Use it to initialize your L1X project.
+
+<br>
+
 
 ##### 4.3 Initialize the Provatar NFT Contract
 
@@ -193,6 +246,9 @@ l1x-cli-beta contract init PROVATAR_NFT_DEPLOY_CONTRACT_ADDRESS --endpoint https
 
 On successful initialization of the project, you will get initialized contract address (PROVATAR_NFT_INIT_CONTRACT_ADDRESS) as the response of the init command. Use it for further Readonly and State Changing Provatar NFT Function calls
 
+<br>
+
+
 
 ##### 4.4 Confirm the Provatar NFT Contract Initialization
 At this stage, just check that the Provatar NFT contract is initialized successfully.
@@ -201,6 +257,9 @@ At this stage, just check that the Provatar NFT contract is initialized successf
 l1x-cli-beta contract view PROVATAR_NFT_INIT_CONTRACT_ADDRESS nft_name --args '{}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 In the response, on successful initialization, you will get PROVATAR_NFT_NAME used during Provatar NFT Contract initialization.
+
+<br>
+
 
 
 ### 5. Profile Card Installation
@@ -212,12 +271,18 @@ cargo l1x create profile_card
 ```
 Goto src/lib.rs and paste the smart contract there. Similarly, paste Cargo.toml file in the project.
 
+<br>
+
+
 ##### 5.1 Building the Profile Card Contract
  ```sh
 cd profile_card
 cargo l1x build
 ```
 A CONTRACT_OBJECT_FILE **profile_card.o** would be created as target/l1x/release/profile_card.o
+
+<br>
+
 
 ##### 5.2 Profile Card Contract Deployment
 
@@ -227,6 +292,9 @@ Deploy the compiled L1X project to the L1X blockchain.
 l1x-cli-beta contract deploy ./target/l1x/release/profile_card.o --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000
 ```
 You will get deployed contract address (PROFILE_CARD_DEPLOY_CONTRACT_ADDRESS) as the response of the above command. Use it to initialize your L1X project.
+
+<br>
+
 
 ##### 5.3 Initialize the Profile Card Contract
 
@@ -238,6 +306,9 @@ l1x-cli-beta contract init PROFILE_CARD_DEPLOY_CONTRACT_ADDRESS --endpoint https
 
 On successful initialization of the project, you will get initialized contract address (PROFILE_CARD_INIT_CONTRACT_ADDRESS) as the response of the init command. Use it for further Readonly and State Changing Profile Card Function calls
 
+<br>
+
+
 ##### 5.4 Confirm the Profile Card Contract Initialization
 At this stage, just check that the Profile Card contract is initialized successfully.
 
@@ -245,6 +316,9 @@ At this stage, just check that the Profile Card contract is initialized successf
 l1x-cli-beta contract view PROFILE_CARD_INIT_CONTRACT_ADDRESS metadata --args '{}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 In the response, on successful initialization, you will get metadata used during Profile Card Contract initialization.
+
+
+<br>
 
 
 ### 6. Data Storage Installation
@@ -257,12 +331,18 @@ cargo l1x create data_storage
 
 Goto src/lib.rs and paste the smart contract there. Similarly, paste Cargo.toml file in the project.
 
+<br>
+
+
 ##### 6.1 Building the Data Storage Contract
  ```sh
 cd data_storage
 cargo l1x build
 ```
 A CONTRACT_OBJECT_FILE **data_storage.o** would be created as target/l1x/release/data_storage.o
+
+<br>
+
 
 ##### 6.2 Data Storage Contract Deployment
 
@@ -273,19 +353,22 @@ l1x-cli-beta contract deploy ./target/l1x/release/data_storage.o --endpoint http
 ```
 You will get deployed contract address (DATA_STORAGE_DEPLOY_CONTRACT_ADDRESS) as the response of the above command. Use it to initialize your L1X project.
 
+<br>
+
+
 ##### 6.3 Initialize the Data Storage Contract
 
 Initialize your deployed L1X project by setting up its base contract address.
 - Note that the pub_key and content needs to be passed in base64 format. Use below command to get base64 format.
 
 ```sh
-echo -n "SUPER_PUB_KEY" | base64 
+echo -n "SUPER_PUB_KEY" | base64
 ```
 You get BASE64_SUPER_PUB_KEY
 
 
 ```sh
-echo -n "CONTENT" | base64 
+echo -n "CONTENT" | base64
 ```
 You get BASE64_CONTENT
 
@@ -294,6 +377,9 @@ l1x-cli-beta contract init DATA_STORAGE_DEPLOY_CONTRACT_ADDRESS --endpoint https
 ```
 
 On successful initialization of the project, you will get initialized contract address (DATA_STORAGE_INIT_CONTRACT_ADDRESS) as the response of the init command. Use it for further Readonly and State Changing Data Storage Function calls
+
+<br>
+
 
 
 ##### 6.4 Confirm the Data Storage Contract Initialization
@@ -305,10 +391,16 @@ l1x-cli-beta contract view DATA_STORAGE_INIT_CONTRACT_ADDRESS owner --args '{}' 
 In the response, on successful initialization, you will get SUPER_WALLET_ADDRESS.
 
 
+<br>
+
+
 
 ## Usage
 
 Here’s the sample scenario for Profiling Service contracts along with the sample functions and how to interact with the contract.
+
+
+<br>
 
 
 
@@ -320,16 +412,28 @@ Here’s the sample scenario for Profiling Service contracts along with the samp
 - Ava transfers Name NFT that is attached to Profile Card to Emma
 - Provatar NFT is transferred automatically
 
+<br>
+
+
 ### Flow
+
+<br>
+
 
 **Mint Name NFT** - State Changing Function Call
 - Step 1: Ava mints Name NFT "ava.l1x".
+
+<br>
+
 
 1.1: Ava mints Name NFT.
 
 ```sh
 l1x-cli-beta contract call NAME_NFT_INIT_CONTRACT_ADDRESS nft_mint_to --args '{"to":"AVA_WALLET_ADDRESS","name": "ROOT_NAME_TO_BE_REGISTERED"}' --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 1000000
 ```
+
+<br>
+
 
 1.2: Ava gets ID of minted Name NFT.
 
@@ -339,8 +443,14 @@ l1x-cli-beta contract view NAME_NFT_INIT_CONTRACT_ADDRESS nft_owned_tokens --arg
 Save it as NAME_NFT_ID as used in later commands.
 
 
+<br>
+
+
 **Check Name Information** - Read Only Function Call
 - Step 2: Ava checks Name Information.
+
+<br>
+
 
 2.1: Ava checks resolver for registered name. Response should be NFT Owner address i.e. AVA's wallet address.
 
@@ -348,21 +458,34 @@ Save it as NAME_NFT_ID as used in later commands.
 l1x-cli-beta contract view NAME_SERVICE_INIT_CONTRACT_ADDRESS resolve_name --args '{"name": "REGISTERED_ROOT_NAME"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 
+<br>
+
+
 2.2: Ava checks owner of the registered name. Owner should be NAME_NFT_INIT_CONTRACT_ADDRESS
 ```sh
 l1x-cli-beta contract view NAME_SERVICE_INIT_CONTRACT_ADDRESS owner_of --args '{"name": "REGISTERED_ROOT_NAME"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 
 
+<br>
+
+
 **Mint Provatar NFT** - State Changing Function Call
 - Step 3: Ava mints Provatar NFT. The minted NFT will refer to the Data Object instance.
+
+<br>
+
 
 3.1: Ava mints Provatar NFT
 
 ```sh
 l1x-cli-beta contract call PROVATAR_NFT_INIT_CONTRACT_ADDRESS nft_mint_to --args '{"to":"AVA_WALLET_ADDRESS","cid": "DATA_STORAGE_INIT_CONTRACT_ADDRESS"}' --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 1000000
-
 ```
+
+
+<br>
+
+
 3.2: Ava gets ID of minted Provatar NFT
 
 ```sh
@@ -371,15 +494,23 @@ l1x-cli-beta contract view PROVATAR_NFT_INIT_CONTRACT_ADDRESS nft_owned_tokens -
 Save it as PROVATAR_NFT_ID as used in later commands.
 
 
+<br>
+
+
 **Add Name NFT and Provatar NFT** - State Changing Function Call
 - Step 4: Ava adds the minted Name NFT and Provatar NFT to Profile. Before adding, Ava needs to approve "spender" in NFTs. The spender is the PROFILE_CARD_INIT_CONTRACT_ADDRESS.
+
+<br>
+
 
 4.1: Ava approves Spender in Provatar NFT.
 
 ```sh
 l1x-cli-beta contract call PROVATAR_NFT_INIT_CONTRACT_ADDRESS nft_approve --args '{"spender":"PROFILE_CARD_INIT_CONTRACT_ADDRESS","id": "PROVATAR_NFT_ID"}' --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 1000000
-
 ```
+
+
+<br>
 
 
 4.2: Ava approves Spender in Name NFT.
@@ -388,6 +519,9 @@ l1x-cli-beta contract call PROVATAR_NFT_INIT_CONTRACT_ADDRESS nft_approve --args
 l1x-cli-beta contract call NAME_NFT_INIT_CONTRACT_ADDRESS nft_approve --args '{"spender":"PROFILE_CARD_INIT_CONTRACT_ADDRESS","id": "NAME_NFT_ID"}' --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 1000000
 ```
 
+<br>
+
+
 4.3: Ava adds Name NFT and Provatar NFT to the Profile Card.
 
 
@@ -395,8 +529,14 @@ l1x-cli-beta contract call NAME_NFT_INIT_CONTRACT_ADDRESS nft_approve --args '{"
 l1x-cli-beta contract call PROFILE_CARD_INIT_CONTRACT_ADDRESS add_name --args '{"name_nft":{"address":"NAME_NFT_INIT_CONTRACT_ADDRESS","id":"NAME_NFT_ID"}, "provatar_nft":{"address":"PROVATAR_NFT_INIT_CONTRACT_ADDRESS","id": "PROVATAR_NFT_ID"}}' --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 100000
 ```
 
+<br>
+
+
 **Check Name Information** - Read Only Function Call
 - Step 5: Ava checks Name Information.
+
+<br>
+
 
 5.1: Ava checks resolver for registered name. Response should be NFT Owner address i.e. PROFILE_CARD_INIT_CONTRACT_ADDRESS.
 
@@ -404,15 +544,24 @@ l1x-cli-beta contract call PROFILE_CARD_INIT_CONTRACT_ADDRESS add_name --args '{
 l1x-cli-beta contract view NAME_SERVICE_INIT_CONTRACT_ADDRESS resolve_name --args '{"name": "REGISTERED_ROOT_NAME"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 
+<br>
+
+
 5.2: Ava checks owner of the registered name. Owner should be NAME_NFT_INIT_CONTRACT_ADDRESS
 ```sh
 l1x-cli-beta contract view NAME_SERVICE_INIT_CONTRACT_ADDRESS owner_of --args '{"name": "REGISTERED_ROOT_NAME"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 
+<br>
+
+
 5.3: Ava checks name in the Profile Card. REGISTERED_ROOT_NAME, NAME_NFT and PROVATAR_NFT details get reflected as response.
 ```sh
 l1x-cli-beta contract view PROFILE_CARD_INIT_CONTRACT_ADDRESS list_names --args '{}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
+
+<br>
+
 
 **Transfer Name** - State Changing Function Call
 - Step 6: Ava transfers the added name to Emma
@@ -421,9 +570,15 @@ l1x-cli-beta contract view PROFILE_CARD_INIT_CONTRACT_ADDRESS list_names --args 
 l1x-cli-beta contract call PROFILE_CARD_INIT_CONTRACT_ADDRESS transfer_name --args '{"name": "REGISTERED_ROOT_NAME", "to": "EMMA_WALLET_ADDRESS"}' --endpoint https://v2-testnet-rpc.l1x.foundation --fee_limit 1000000
 ```
 
+<br>
+
+
 
 **Check Name Information** - Read Only Function Call
 - Step 7: Ava checks Name Information.
+
+
+<br>
 
 
 7.1: Ava checks resolver for registered name. EMMA_WALLET_ADDRESS should appear in the response.
@@ -432,11 +587,17 @@ l1x-cli-beta contract call PROFILE_CARD_INIT_CONTRACT_ADDRESS transfer_name --ar
 l1x-cli-beta contract view NAME_SERVICE_INIT_CONTRACT_ADDRESS resolve_name --args '{"name": "REGISTERED_ROOT_NAME"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 
+<br>
+
+
 7.2: Ava checks owner of the registered name. NAME_NFT_INIT_CONTRACT_ADDRESS should appear in the response.
 
 ```sh
 l1x-cli-beta contract view NAME_SERVICE_INIT_CONTRACT_ADDRESS owner_of --args '{"name": "REGISTERED_ROOT_NAME"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
+
+<br>
+
 
 7.3: Ava checks Name NFT owner. EMMA_WALLET_ADDRESS should appear in the response.
 
@@ -444,17 +605,26 @@ l1x-cli-beta contract view NAME_SERVICE_INIT_CONTRACT_ADDRESS owner_of --args '{
 l1x-cli-beta contract view NAME_NFT_INIT_CONTRACT_ADDRESS nft_owner_of --args '{"id": "NAME_NFT_ID"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 
+<br>
+
+
 7.4: Ava checks Provatar NFT owner. EMMA_WALLET_ADDRESS should appear in the response.
 
 ```sh
 l1x-cli-beta contract view PROVATAR_NFT_INIT_CONTRACT_ADDRESS nft_owner_of --args '{"id": "PROVATAR_NFT_ID"}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
 
+<br>
+
+
 7.5: Ava checks names in Profile Card. The list should be empty now.
 
 ```sh
 l1x-cli-beta contract view PROFILE_CARD_INIT_CONTRACT_ADDRESS list_names --args '{}' --endpoint https://v2-testnet-rpc.l1x.foundation
 ```
+
+<br>
+
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for more details.
